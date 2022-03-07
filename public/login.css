@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.main {
+    width: 100%;
+    
+    background-image:linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5)50%), url(/img/daun.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container-fluid {
+    padding-right: 0% !important;
+    padding-left: 0% !important;
+}
+nav .container-fluid{
+    padding: 40px;
+}
+.container-fluid h1{
+    font-size: 40px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+
+.container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    top: 50%;
+    align-items: center;
+
+}
+
+/* card */
+.card {
+    border-radius: 23px;
+    /* margin-top: 100px */
+}
+.card-body {
+    padding-bottom: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+a.btn {
+    color: gray;
+    font-size: 30px;
+    float: right;
+}
+ p {
+     margin-top: 10px;
+     margin-bottom: 10px;
+     font-size: 14px;
+ }
+ 
+.form-control {
+    padding: 9px;
+    border: 2px solid black;
+    padding-left: 15px;
+    color: black;
+}
+label {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+input{
+    color: black;
+}
+
+.p-text {
+    font-size: 13px;
+    margin-bottom: 2px;
+    text-decoration: none;
+    display: inline-block;
+}
