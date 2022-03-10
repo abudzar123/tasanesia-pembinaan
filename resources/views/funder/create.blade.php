@@ -3,6 +3,7 @@
 @section('title', 'Funder')
 
 @section('content')
+<h1 class="text-center" style="color:green">Edit Data Pembina</h1>
 
 @if(Session::has('success'))
 <div class="alert alert-success">

@@ -77,7 +77,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
-            <a href="{{ route('instantion.create') }}"><button type="button" class="btn btn-success">Tambah</button></a>
+            <a href="{{ route('instantion.create') }}"><button type="button" class="btn"  style="background-color: #315343;color:white;">Tambah</button></a>
         </div>
           <div class="col-lg-3 col-md-2 col-sm-3 col-2 mx-3" style="margin-bottom: 20px">
             <div class="btn-group">
@@ -105,13 +105,13 @@
           <th scope="col">Kepala perusahaan</th>
           <th scope="col">No. Handphone</th>
           <th scope="col">Address</th>
-          <th scope="col">Platfond</th>
+          <th scope="col">Plafond</th>
         </tr>
         @foreach($data_instantion as $data)
         <tr>
         <td>{{$loop->iteration}}</td>
-        <td>{{$data->id}}</td>
         <td>{{$data->name}}</td>
+        <td>{{$data->head_of_company}}</td>
         <td><a href="/instantion/{{$data->id}}/detail">http\tasanesia.com\{{$data->name}}</a></td>
         <td>
           <form action="{{ route('instantion.destroy', $data->id) }}" method="POST">

@@ -20,7 +20,7 @@ class CreateNurseriesTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email');
-            $table->string('fak');
+            $table->string('fax');
             $table->string('web');
             $table->string('bank_accountno');
             $table->string('area');

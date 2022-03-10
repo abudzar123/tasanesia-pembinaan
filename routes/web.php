@@ -8,7 +8,9 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FunderProjectController;
 use App\Http\Controllers\ProjectLocationController;
 use App\Http\Controllers\RegistarController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PetaniController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,17 +65,17 @@ Route::resource('project_location', ProjectLocationController::class);
 Route::get('/project_location/{id}/edit', 'App\Http\Controllers\ProjectLocationController@edit');
 Route::post('/project_location/{id}/update', 'App\Http\Controllers\ProjectLocationController@update');
 
-
 Route::resource('/registers', RegistarController::class)->middleware('guest');
-// Route::get('/dashboard', 'App\Http\Controllers\RegistarController@index');
-// Route::post('/register_store', 'App\Http\Controllers\RegistarController@store');
-
 
 Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login')->middleware('guest');
 Route::post('/create', 'App\Http\Controllers\LoginController@authenticate');
 Route::get('/dashboard', 'App\Http\Controllers\LoginController@example')->middleware('auth');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout' );
 
+
+Route::resource('/admin', AdminController::class);
+
+Route::resource('/product', ProductController::class);
 
 // Route::resource('login', RegisterPetaniController::class);
 // Route::get('/petani/login', 'App\Http\Controllers\LoginController@index');

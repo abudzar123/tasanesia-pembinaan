@@ -66,32 +66,30 @@
     <div class="text-center">
       <h1 style="color: #315343; font-weight: bold">List Petani</h1>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-2" style="margin-bottom: 20px">
-          <a href="{{ route('nurseries.create') }}"><button type="button" class="btn btn-success">Tambah</button></a>
+        <div class="col-lg-3 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
+            <a href="{{ route('nurseries.create') }}"><button type="button" class="btn"  style="background-color: #315343;color:white;">Tambah</button></a>
         </div>
-        <div class="col-lg-2 btn-group">
-          <button type="button" class="btn btn-success">Lokasi</button>
-          <button
-            type="button"
-            class="btn btn-success dropdown-toggle dropdown-toggle-split"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <span class="visually-hidden">Toggle Dropdown</span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Separated link</a></li>
-          </ul>
+          <div class="col-lg-3 col-md-2 col-sm-3 col-2 mx-3" style="margin-bottom: 20px">
+            <div class="btn-group">
+            <button type="button" style="background-color: #315343;color:white; border-radius: 5px;" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Lokasi
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 offset-2 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
+          <button type="button" class="btn" style="background-color: #315343;color:white; border-radius: 5px;">Search<i class="fas fa-search mx-1"></i></button>
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <table class="table table-bordered" style="border: 1px solid black">
         <tr>
           <th scope="col">No</th>

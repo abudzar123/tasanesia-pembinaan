@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="sidebar.css" />
-    <link rel="stylesheet" href="tasanesiaform.css" />
+    <link rel="stylesheet" href="/tasanesiaform.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
 
-    <title>List Pembina</title>
+    <title>List Produk</title>
   </head>
   <body>
     <section>
@@ -23,7 +23,7 @@
         <div class="container-fluid">
           <a class="navbar-image" href="#"
             ><img
-              src="{{ asset('img/gambar.jpeg') }}"
+              src="permata desa indonesia logo horisontal (1).png"
               alt=""
               style="width: 150px; margin-left: 10px"
           /></a>
@@ -39,7 +39,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"
                   >Dashboard</a
@@ -62,66 +62,58 @@
         </div>
       </nav>
     </section>
-    <section>
-    <div class="text-center">
-      <h1 style="color: #315343; font-weight: bold">List Pembina</h1>
-    </div>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
-            <a href="{{ route('coach.create') }}"><button type="button" class="btn"  style="background-color: #315343;color:white;">Tambah</button></a>
+        <div class="text-center">
+          <h1 style="color: #315343; font-weight: bold">List Produk</h1>
         </div>
-          <div class="col-lg-3 col-md-2 col-sm-3 col-2 mx-3" style="margin-bottom: 20px">
-            <div class="btn-group">
-            <button type="button" style="background-color: #315343;color:white; border-radius: 5px;" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Lokasi
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
+              <button type="button" class="btn" style="background-color: #315343;color:white; border-radius: 5px;">Tambah</button>
+            </div>
+              <div class="col-lg-3 col-md-2 col-sm-3 col-2 mx-3" style="margin-bottom: 20px">
+                <div class="btn-group">
+                <button type="button" style="background-color: #315343;color:white; border-radius: 5px;" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Lokasi
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 offset-2 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
+              <button type="button" class="btn" style="background-color: #315343;color:white; border-radius: 5px;">Search<i class="fas fa-search mx-1"></i></button>
+            </div>
           </div>
         </div>
-        <div class="col-lg-3 offset-2 col-md-2 col-sm-3 col-2" style="margin-bottom: 20px">
-          <button type="button" class="btn" style="background-color: #315343;color:white; border-radius: 5px;">Search<i class="fas fa-search mx-1"></i></button>
-        </div>
-      </div>
-    </div>
     <div class="container-fluid">
       <table class="table table-bordered" style="border: 1px solid black">
         <tr>
           <th scope="col">No</th>
-          <th scope="col">ID Pembina</th>
-          <th scope="col">Nama Pembina</th>
-          <th scope="col">Detail</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Gambar produk</th>
+          <th scope="col">Nama produk</th>
+          <th scope="col">Harga produk</th>
+          <th scope="col">Jumlah produk</th>
+          <th scope="col">Keterangan</th>
+          <th scope="col">Status produk</th>
         </tr>
+        @foreach ($product as $data)
         <tr>
-          @foreach($data_coach as $data)
-          <tr>
-          <td>{{$loop->iteration}}</td>
-          <td>{{$data->id}}</td>
-          <td>{{$data->name}}</td>
-          <td><a href="/coach/{{$data->id}}/detail">http\tasanesia.com\{{$data->name}}</a></td>
-          <td>
-            <form action="{{ route('coach.destroy', $data->id) }}" method="POST">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure for delete this data?')">
-                  DELETE
-              </button>
-            </form>
-          <form action="{{ route('coach.edit', $data->id) }}" method="POST">
-              @csrf
-              @method('GET')
-              <button type="submit" class="btn btn-sm btn-success mt-2">
-                  UPDATE
-              </button>
-          </form>
-          </td>
-        </tr>
+            <td>{{ $loop->iteration }}</td>
+            <td><img src="{{ $data->images }}" alt=""></td>
+            <td>{{ $data->name }}</td>
+            <td>{{ $data->price }}</td>
+            <td>{{ $data->quantity }}</td>
+            <td><a>{{ $data->notes }}</a></td>
+            <td>{{ $data->status }}</td>
+            <td>
+                  <button type="button" class="btn btn-danger mx-2">Hapus</button>
+                  <button type="button" class="btn" style="background-color: #315343;color:white; border-radius: 5px;">Edit</button>
+            </td>
+          </tr>      
         @endforeach
       </table>
     </div>
@@ -142,8 +134,3 @@
     -->
   </body>
 </html>
-
-
-
-
-

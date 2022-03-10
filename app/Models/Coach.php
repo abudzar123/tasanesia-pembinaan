@@ -11,6 +11,7 @@ class Coach extends Model
     protected $fillable = [
         'name',
         'degree',
+        'institution_id',
         'school',
         'faculty',
         'major',

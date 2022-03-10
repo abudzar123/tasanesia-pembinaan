@@ -77,6 +77,9 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="index.html" class="active"><i class="fa-solid fa-table-columns"></i> <span>Dashboard</span></a></li>
+						@can('halaman_admin') 
+						<li><a href="/admin" class="active"><i class="fa-solid fa-table-columns"></i> <span>Admin</span></a></li>
+						@endcan
 						 @can('halaman_petani') 
 						<li><a href="/nurseries" class=""><i class="fa-solid fa-leaf"></i> <span>Manajemen petani</span></a></li>
 						@endcan

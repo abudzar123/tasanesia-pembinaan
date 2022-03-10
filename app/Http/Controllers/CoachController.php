@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coach;
+use App\Models\Instantion;
 use App\Http\Requests\StoreCoachRequest;
 use App\Http\Requests\UpdateCoachRequest;
 use Illuminate\Http\Request;
@@ -32,7 +33,8 @@ class CoachController extends Controller
      */
     public function create()
     {
-        return view('coach.create');
+        $instantion = Instantion::all();
+        return view('coach.create', compact('instantion'));
     }
 
     /**
@@ -48,6 +50,7 @@ class CoachController extends Controller
         Coach::query()->create([
             'name' => $request->name,
             'degree' => $request->degree,
+            'institution_id' => $request->institution_id,
             'school' => $request->school,
             'faculty' => $request->faculty,
             'major' => $request->major,

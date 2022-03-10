@@ -118,7 +118,7 @@
                   <h5>{{$instantion->phone}}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Platfond :</h5>
+                  <h5>Plafond :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>{{$instantion->plafond}}</h5>
