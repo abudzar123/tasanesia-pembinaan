@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\nurseries;
 use App\Http\Requests\StorenurseriesRequest;
 use App\Http\Requests\UpdatenurseriesRequest;
+use App\Models\Provinces;
 use Illuminate\Http\Request;
 
 class NurseriesController extends Controller
@@ -32,7 +33,8 @@ class NurseriesController extends Controller
      */
     public function create()
     {
-        return view('nurseries.create');
+        $province = Provinces::all();
+        return view('nurseries.create', compact('province'));
     }
 
     /**
@@ -47,6 +49,9 @@ class NurseriesController extends Controller
             'name' => $request->name,
             'head_of_company' => $request->head_of_company,
             'address' => $request->address,
+            'province_id' => $request->province_id,
+            'city_id' => $request->city_id,
+            'district_id' => $request->district_id,
             'phone' => $request->phone,
             'email' => $request->email,
             'fax' => $request->fax,
@@ -98,8 +103,8 @@ class NurseriesController extends Controller
      */
     public function detail($id)
     {
-        $nurseries = \App\Models\Nurseries::find($id);
-        return view('nurseries.data-petani', ['nurseries' =>$nurseries]);
+        $nurseries = Nurseries::find($id);
+        return view('nurseries.data-petani', ['nurseries' => $nurseries]);
     }
 
     /**

@@ -12,6 +12,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Models\Cities;
+use App\Models\Districts;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,10 +74,19 @@ Route::post('/create', 'App\Http\Controllers\LoginController@authenticate');
 Route::get('/dashboard', 'App\Http\Controllers\LoginController@example')->middleware('auth');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout' );
 
-
 Route::resource('/admin', AdminController::class);
 
 Route::resource('/product', ProductController::class);
+
+Route::get('getCities/{id}', function ($id) {
+    $cities = Cities::where('province_id', $id)->get();
+    return response()->json($cities);
+});
+
+Route::get('getDistricts/{id}', function ($id) {
+    $districts = Districts::where('city_id', $id)->get();
+    return response()->json($districts);
+});
 
 // Route::resource('login', RegisterPetaniController::class);
 // Route::get('/petani/login', 'App\Http\Controllers\LoginController@index');

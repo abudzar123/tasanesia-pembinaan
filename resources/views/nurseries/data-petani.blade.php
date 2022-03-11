@@ -105,7 +105,7 @@
                   <h5>Kecamatan :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>put district here</h5>
+                  <h5>{{$nurseries->districts->name}}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>Jumlah karyawan tetap</h5>
@@ -117,7 +117,7 @@
                   <h5>Kota :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>put city here</h5>
+                  <h5>{{$nurseries->cities->name}}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>Jumlah karyawan tidak tetap :</h5>
@@ -129,7 +129,7 @@
                   <h5>Provinsi :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>put province here</h5>
+                  <h5 style="text-transform: capitalize">{{$nurseries->provinces->name}}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>No handphone :</h5>

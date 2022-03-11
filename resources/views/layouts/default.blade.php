@@ -19,6 +19,70 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+    <script>
+    $(document).ready(function () {
+      $('#province').on('change', function () {
+        var provinceID = $(this).val();
+        if (provinceID) {
+          $.ajax({
+            url: '/getCities/' + provinceID,
+            type: "GET",
+            data: {
+              "_token": "{{ csrf_token() }}"
+            },
+            dataType: "json",
+            success: function (data) {
+              if (data) {
+                $('#cityCourse').empty();
+                $('#cityCourse').append('<option hidden>Choose City</option>');
+                $.each(data, function (key, course) {
+                  $('select[name="city_id"]').append('<option value="' + course.id + '">' + course.name +
+                    '</option>');
+                });
+              } else {
+                $('#course').empty();
+              }
+            }
+          });
+        } else {
+          $('#course').empty();
+        }
+      });
+    });
+  </script>
+
+<script>
+    $(document).ready(function () {
+      $('#cityCourse').on('change', function () {
+        var cityID = $(this).val();
+        if (cityID) {
+          $.ajax({
+            url: '/getDistricts/' + cityID,
+            type: "GET",
+            data: {
+              "_token": "{{ csrf_token() }}"
+            },
+            dataType: "json",
+            success: function (data) {
+              if (data) {
+                $('#districtCourse').empty();
+                $('#districtCourse').append('<option hidden>Choose District</option>');
+                $.each(data, function (key, course) {
+                  $('select[name="district_id"]').append('<option value="' + course.id + '">' + course.name +
+                    '</option>');
+                });
+              } else {
+                $('#course').empty();
+              }
+            }
+          });
+        } else {
+          $('#course').empty();
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>

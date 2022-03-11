@@ -12,6 +12,9 @@ class nurseries extends Model
         'name',
         'head_of_company',
         'address',
+        'province_id',
+        'city_id',
+        'district_id',
         'phone',
         'email',
         'fax',
@@ -28,4 +31,19 @@ class nurseries extends Model
         'developing_land',
         'notes',
     ];
+
+    public function provinces()
+    {
+      return $this->belongsTo(Provinces::class, 'province_id');
+    }
+
+    public function cities()
+    {
+      return $this->belongsTo(Cities::class, 'city_id');
+    }
+
+    public function districts()
+    {
+      return $this->belongsTo(Districts::class, 'district_id');
+    }
 }
