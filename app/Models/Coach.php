@@ -22,4 +22,9 @@ class Coach extends Model
         'skill',
         'notes',
     ];
+
+    public function nurseries()
+    {
+      return $this->hasMany(nurseries::class, 'coach_id');
+    }
 }

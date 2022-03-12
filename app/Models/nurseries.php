@@ -32,6 +32,11 @@ class nurseries extends Model
         'notes',
     ];
 
+    public function coach()
+    {
+      return $this->belongsTo(Coach::class, 'coach_id');
+    }
+
     public function provinces()
     {
       return $this->belongsTo(Provinces::class, 'province_id');
