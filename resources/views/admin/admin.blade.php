@@ -43,15 +43,7 @@
                                     @enderror
                                   </div>
                             </div>
-                        <!-- </div>
-                            <div class="col-md-6"  style="margin-top: -17px !important;">
-                                <div class="mb-1">
-                                    <label for="exampleFormControlInput1" class="form-label"></label>
-                                    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
-                                  </div>
-                            </div>
-                        </div> -->
-
+                        
                         <form action="{{route('registers.store')}}" method="POST">
                           {{ csrf_field() }}
                         <div class="mb-1" style="margin-top: -17px !important;">

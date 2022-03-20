@@ -1,241 +1,178 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-	<title>Dashboard Tasanesia</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!-- VENDOR CSS -->
-	<link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
+    <!-- font awesome -->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<link rel="stylesheet" href="{{asset('assets/vendor/linearicons/style.css')}}">
-	<link rel="stylesheet" href="{{asset('assets/vendor/chartist/css/chartist-custom.css')}}">
-	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
-	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
-	<title>Dashboard</title>
-</head>
 
-<body>
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="index.html"><img src="{{ asset('img/') }}" alt="Tasanesia Logo" class="img-responsive logo"></a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<form class="navbar-form navbar-left">
-					<div class="input-group">
-						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-						<span class="input-group-btn"><button type="button" class="btn btn-success" style="background-color:#315343">Go</button></span>
-					</div>
-				</form>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<ul class="dropdown-menu notifications">
-								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-								<li><a href="#" class="more">See all notifications</a></li>
-							</ul>
-						</li>
-	
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-						<!-- <li>
-							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-						</li> -->
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- END NAVBAR -->
-		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar" style="background-color:#315343;">
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="fa-solid fa-table-columns"></i> <span>Dashboard</span></a></li>
-						@can('halaman_admin') 
-						<li><a href="/admin" class="active"><i class="fa-solid fa-table-columns"></i> <span>Admin</span></a></li>
-						@endcan
-						 @can('halaman_petani') 
-						<li><a href="/nurseries" class=""><i class="fa-solid fa-leaf"></i> <span>Manajemen petani</span></a></li>
-						@endcan
-						@can('halaman_pembina')
-						<li><a href="/coach" class=""><i class="fa-solid fa-chalkboard-user"></i><span>Manajemen pembina</span></a></li>
-						@endcan
-						@can('halaman_institusi')
-						<li><a href="/instantion" class=""><i class="fa-solid fa-school"></i> <span>Manajemen institusi</span></a></li>	
-						@endcan				
-						<li><a href="/product" class=""><i class="fa-solid fa-box"></i> <span>Manajemen produk</span></a></li>
+    <title>Institusi</title>
+    
+  </head>
+  <body>
+    <div class="row m-0 vh-100">
+      <div class="col-md-2 col-6 bg-custom-1 p-0" id="navbarToggleExternalContent">
+        <header class="p-3 ps-4" style="background-color: #315343 ;">
+          
+        </header>
+        <ul class="nav flex-column ">
+			<li class="nav-item"><a href="index.html" class="nav-link"><i class="fa-solid fa-table-columns"></i> <span>Dashboard</span></a></li>
+			 @can('halaman_petani') 
+			<li class="nav-item"><a href="/nurseries" class="nav-link"><i class="fa-solid fa-leaf"></i> <span>Manajemen petani</span></a></li>
+			@endcan
+			@can('halaman_pembina')
+			<li class="nav-item"><a href="/coach" class="nav-link"><i class="fa-solid fa-chalkboard-user"></i><span>Manajemen pembina</span></a></li>
+			@endcan
+			@can('halaman_institusi')
+			<li class="nav-item"><a href="/instantion" class="nav-link"><i class="fa-solid fa-school"></i> <span>Manajemen institusi</span></a></li>	
+			@endcan				
+			<li class="nav-item"><a href="/product" class="nav-link"><i class="fa-solid fa-box"></i> <span>Manajemen produk</span></a></li>
 
-						
-						<!-- <li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li> -->
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!-- END LEFT SIDEBAR -->
-        <!-- Javascript -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
-	<script>
-	$(function() {
-		var data, options;
-
-		// headline charts
-		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			series: [
-				[23, 29, 24, 40, 25, 24, 35],
-				[14, 25, 18, 34, 29, 38, 44],
-			]
-		};
-
-		options = {
-			height: 300,
-			showArea: true,
-			showLine: false,
-			showPoint: false,
-			fullWidth: true,
-			axisX: {
-				showGrid: false
-			},
-			lineSmooth: false,
-		};
-
-		new Chartist.Line('#headline-chart', data, options);
-
-
-		// visits trend charts
-		data = {
-			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-			series: [{
-				name: 'series-real',
-				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
-			}, {
-				name: 'series-projection',
-				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
-			}]
-		};
-
-		options = {
-			fullWidth: true,
-			lineSmooth: false,
-			height: "270px",
-			low: 0,
-			high: 'auto',
-			series: {
-				'series-projection': {
-					showArea: true,
-					showPoint: false,
-					showLine: false
-				},
-			},
-			axisX: {
-				showGrid: false,
-
-			},
-			axisY: {
-				showGrid: false,
-				onlyInteger: true,
-				offset: 0,
-			},
-			chartPadding: {
-				left: 20,
-				right: 20
-			}
-		};
-
-		new Chartist.Line('#visits-trends-chart', data, options);
-
-
-		// visits chart
-		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			series: [
-				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
-			]
-		};
-
-		options = {
-			height: 300,
-			axisX: {
-				showGrid: false
-			},
-		};
-
-		new Chartist.Bar('#visits-chart', data, options);
-
-
-		// real-time pie chart
-		var sysLoad = $('#system-load').easyPieChart({
-			size: 130,
-			barColor: function(percent) {
-				return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
-			},
-			trackColor: 'rgba(245, 245, 245, 0.8)',
-			scaleColor: false,
-			lineWidth: 5,
-			lineCap: "square",
-			animate: 800
-		});
-
-		var updateInterval = 3000; // in milliseconds
-
-		setInterval(function() {
-			var randomVal;
-			randomVal = getRandomInt(0, 100);
-
-			sysLoad.data('easyPieChart').update(randomVal);
-			sysLoad.find('.percent').text(randomVal);
-		}, updateInterval);
-
-		function getRandomInt(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-	});
-	</script>
-		
-</body>
-
+			
+			
+        </ul>
+      </div>
+      <div class="col-md-10 p-0" id ="uiNavbar">
+        <div class="main-toolbar bg-custom-2 p-3">
+          <i class="bi bi-justify fs-1 " style="color: #315343;" id="demo" onclick="closeNav()"></i>
+          <img src="{{asset('img/permata desa indonesia logo horisontal.png')}}" class="brand-image" width="70%" alt="" srcset="">
+          <div class="nav-right ms-auto">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" style=" color: #315343;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ Auth::user()->name }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-4 justify-content-center d-flex" style="margin-top: 20px;" >
+              <div class="row" style="background-color: #315343; width: 74%; padding: 25px; border-radius: 15px; box-shadow: 4px 4px 10px #cec4c4;">
+                <div class="col-md-4 mobile-show">
+                  <a href=""><i class="chalk fa-solid fa-chalkboard-user" style=" font-size: 40px;
+					          color: white;"></i></a>
+                  <p style="color: white; margin-top: 30px;">Pembina</p>
+                </div>
+                <div class="col-md-8 show-mobile">
+                  <p style="font-size: 60px; color: white; text-align: end; font-weight: 600;">20</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 justify-content-center d-flex" style="margin-top: 20px;" >
+              <div class="row" style="background-color: #315343; width: 74%; padding: 25px; border-radius: 15px; box-shadow: 4px 4px 10px #cec4c4;">
+                <div class="col-md-4 mobile-show">
+                  <a href=""><i class="fa-solid fa-user-group"></i></a>
+                  <p style="color: white; margin-top: 30px;">Petani</p>
+                </div>
+                <div class="col-md-8 show-mobile">
+                  <p style="font-size: 60px; color: white; text-align: end; font-weight: 600;">20</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 justify-content-center d-flex" style="margin-top: 20px;" >
+              <div class="row" style="background-color: #315343; width: 74%; padding: 25px; border-radius: 15px; box-shadow: 4px 4px 10px #cec4c4;">
+                <div class="col-md-4 mobile-show">
+                  <a href=""><i class="fa-solid fa-leaf"></i></a>
+                  <p style="color: white; margin-top: 30px;">Produk</p>
+                </div>
+                <div class="col-md-8 show-mobile">
+                  <p style="font-size: 60px; color: white; text-align: end; font-weight: 600;">20</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0">
+          
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <script>
+      function openNav() {
+            
+            var myNav = document.getElementById("navbarToggleExternalContent");
+            
+            myNav.style.display = myNav.style.display === 'none' ? '' : 'none';
+            
+            document.getElementById("demo").onclick = closeNav;
+      
+            var element = document.getElementById("uiNavbar");
+      
+            var x = window.matchMedia("(max-width: 700px)");
+      
+            if (x.matches) {
+      
+                  element.classList.remove("col-12");
+      
+                  element.classList.remove("col-md-12");
+      
+                  element.classList.add("col-6");
+      
+                  element.classList.add("col-6");
+      
+      
+            } else{
+      
+                  element.classList.remove("col-md-12");
+                 
+                  element.classList.remove("col-12");
+      
+                  element.classList.add("col-md-10");
+                  
+                  element.classList.add("col-6");
+      
+      
+            }
+      
+      }
+      
+      function closeNav() {
+      
+            document.getElementById("navbarToggleExternalContent").style.display = "none";
+            
+            document.getElementById("demo").onclick = openNav;
+      
+            var element = document.getElementById("uiNavbar");
+      
+            var x = window.matchMedia("(max-width: 700px)");
+      
+            if (x.matches) {
+      
+                  element.classList.remove("col-md-10");
+      
+                  element.classList.remove("col-6");
+      
+                  element.classList.add("col-12");
+      
+                  element.classList.add("col-md-12");
+      
+      
+            } else{
+      
+                  element.classList.remove("col-sm-10");
+      
+                  element.classList.remove("col-md-10");
+      
+                  element.classList.add("col-md-12");
+                  
+                  element.classList.add("col-12");
+      
+            }
+      
+          
+      }
+      
+    </script>
+  </body>
 </html>

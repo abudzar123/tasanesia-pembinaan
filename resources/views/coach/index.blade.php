@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="sidebar.css" />
     <link rel="stylesheet" href="tasanesiaform.css" />
+    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -19,48 +20,22 @@
   </head>
   <body>
     <section>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-image" href="#"
-            ><img
-              src="{{ asset('img/gambar.jpeg') }}"
-              alt=""
-              style="width: 150px; margin-left: 10px"
-          /></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Dashboard</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Manajemen Produk</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Manajemen Kategori</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Manajemen order</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Manajemen Berita</a>
-              </li>
-            </ul>
+      <div class="col-md-10 p-0" id ="uiNavbar">
+        <div class="main-toolbar bg-custom-2 p-3">
+          <i class="bi bi-justify fs-1 " style="color: #315343;" id="demo" onclick="closeNav()"></i>
+          <img src="{{asset('img/permata desa indonesia logo horisontal.png')}}" class="brand-image" width="70%" alt="" srcset="">
+          <div class="nav-right ms-auto">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" style=" color: #315343;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Pembina
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
     </section>
     <section>
     <div class="text-center">
