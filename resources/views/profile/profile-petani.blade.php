@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('tasanesiaform.css') }}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
-    <!-- font awesome -->
+    
+    
+    {{-- font-awesome --}}
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-      <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css" />
-
-    <title>Institusi</title>
     
+
+    <title>data petani</title>
   </head>
   <body>
     <div class="row m-0 vh-100">
@@ -55,89 +65,138 @@
             </div>
           </div>
         </div>
-       <!-- Page Content Holder -->
-       <div class="container">
+    <section>
+      <div class="container">
         <div class="row">
-          <div
-            class="card"
-            style="background-color: white; margin-top: 85px; border: none"
-          >
-            <div
-              class="card-body text-center"
-              style="background-color: #315343"
-            >
-              <h1 style="margin-top: 0px">Data Institusi</h1>
+          <div class="card" style="background-color: white; margin-top: 85px; border: none">
+            <div class="card-body text-center"style="background-color: #315343">
+              <h1 style="margin-top: 0px">Data Petani</h1>
             </div>
             <div class="card-body">
               <div class="row" style="padding: 35px">
+                @foreach ($profile_petani as $petani)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>Nama :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->name}}</h5>
+                  <h5>{{ $petani->name }}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Kota :</h5>
+                  <h5>Area:</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->kota}}</h5>
+                  <h5>{{ $petani->area }}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>Kepala Perusahaan :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->head_of_company}}</h5>
+                  <h5>{{ $petani->head_of_company }}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Provinsi :</h5>
+                  <h5>Omset Perbulan :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->provinsi}}</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>No. Handphone :</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->phone}}</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Plafond :</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->plafond}}</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Email :</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->email}}</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Source :</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->source}}</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Address :</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->address}}</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>Catatan :</h5>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->notes}}</h5>
+                  <h5>{{ $petani->monthly_omzet }}<h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <h5>Kecamatan :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>{{$instantion->name}}</h5>
+                  <h5>{{ $petani->district_id }}</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
-                  <h5>is verified :</h5>
+                  <h5>Jumlah karyawan tetap</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->permanent_emp }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Kota :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->city_id }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Jumlah karyawan tidak tetap :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->non_permanent_emp }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Provinsi :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5 style="text-transform: capitalize">{{ $petani->province_id }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>No handphone :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->phone}}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Potensi :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->potency }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Email :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->email }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>ID Pembina :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>put coach id here</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Fax :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->fax }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Luas tanah yang ada</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->existing_land }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Web :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->web }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Perkembangan tanah :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->developing_land }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Found ID :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>put found id here</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Keterangan :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->notes }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>No rekening bank :</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>{{ $petani->bank_accountno }}</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
+                  <h5>Is verified :</h5>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3 form-coloumn">
                   <div class="form-check">
@@ -164,52 +223,43 @@
                     </label>
                   </div>
                 </div>
-                        <div class="row">
-                          <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="text-align: end;">
-                          <button
-                            class="text-center"
-                            style="
-                              width: 150px;
-                              margin-top: 200px;
-                              margin-left: auto;
-                              margin-right: auto;
-                              border-radius: 10px;
-                              background-color: #315343 ;
-                              color: white;
-                              font-weight: bolder;
-                              text-align: end;
-                            "
-                          >
-                            Edit
-                          </button>
-                          </div>
-                          <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                            <button
-                              class="text-center"
-                              style="
-                                width: 150px;
-                                margin-top: 200px;
-                                margin-left: auto;
-                                margin-right: 20px;
-                                border-radius: 10px;
-                                background-color: white;
-                                color: #315343;
-                                font-weight: bolder;
-                              "
-                            >
-                              Kembali
-                            </button>
-                            </div>
-
-                        </div>
-                      </div>
-                    </div>
+                <div class="row">
+                  <div class="col-lg-12 offset-4 mt-4">
+                    <form action="">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('Are you sure for delete this data?')">
+                          HAPUS
+                      </button>
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-light mx-5 mt-3">
+                          KIRIM
+                      </button>
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-success mt-3">
+                          SIMPAN
+                      </button>
+                    </form>
+                  </div>
                 </div>
+              @endforeach
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
     <script>
@@ -288,5 +338,11 @@
       }
       
     </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
   </body>
 </html>

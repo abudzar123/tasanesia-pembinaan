@@ -74,6 +74,10 @@ Route::post('/create', 'App\Http\Controllers\LoginController@authenticate');
 Route::get('/dashboard', 'App\Http\Controllers\LoginController@example')->middleware('auth');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout' );
 
+Route::get('/nurseries-profile', 'App\Http\Controllers\ProfileController@profileNursery');
+Route::get('/coach-profile', 'App\Http\Controllers\ProfileController@profileCoach');
+Route::get('/instantion-profile', 'App\Http\Controllers\ProfileController@profileInstantion');
+
 Route::resource('/admin', AdminController::class);
 
 Route::resource('/product', ProductController::class);

@@ -27,15 +27,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('halaman_petani',function (User $user){
-            return $user->role ==='admin' || $user->role ==='institusi' || $user->role ==='pembina';
+            return $user->role ==='admin' || $user->role ==='institusi' || $user->role ==='pembina' || $user->role ==='petani'; 
         });
 
         Gate::define('halaman_pembina',function (User $user){
-            return $user->role ==='admin' || $user->role ==='institusi';
+            return $user->role ==='admin' || $user->role ==='institusi'  || $user->role ==='pembina';
         });
         
         Gate::define('halaman_institusi',function (User $user){
-            return $user->role ==='admin' ;
+            return $user->role ==='admin' || $user->role ==='institusi' ;
         });
 
         Gate::define('halaman_admin',function (User $user){

@@ -10,7 +10,7 @@
     <!-- font awesome -->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <title>Institusi</title>
     
@@ -22,19 +22,20 @@
           
         </header>
         <ul class="nav flex-column ">
-			<li class="nav-item"><a href="index.html" class="nav-link"><i class="fa-solid fa-table-columns"></i> <span>Dashboard</span></a></li>
-			 @can('halaman_petani') 
-			<li class="nav-item"><a href="/nurseries" class="nav-link"><i class="fa-solid fa-leaf"></i> <span>Manajemen petani</span></a></li>
+			<li class="nav-item"><a href="/dashboard" class="nav-link"><i class="fa-solid fa-table-columns"></i> <span class="mx-3">Dashboard</span></a></li>
+			@can('halaman_petani') 
+			<li class="nav-item"><a href="/nurseries" class="nav-link"><i class="fa-solid fa-seedling"></i><span class="mx-3">Manajemen petani</span></a></li>
+      <li class="nav-item"><a href="/nurseries-profile" class="nav-link"><i class="fa-solid fa-gear"></i><span class="mx-3">Pengaturan profile</span></a></li>
 			@endcan
 			@can('halaman_pembina')
-			<li class="nav-item"><a href="/coach" class="nav-link"><i class="fa-solid fa-chalkboard-user"></i><span>Manajemen pembina</span></a></li>
+			<li class="nav-item"><a href="/coach" class="nav-link"><i class="fa-solid fa-chalkboard-user"></i><span  class="mx-3">Manajemen pembina</span></a></li>
+      <li class="nav-item"><a href="/coach-profile" class="nav-link"><i class="fa-solid fa-gear"></i><span class="mx-3">Pengaturan profile</span></a></li>
 			@endcan
 			@can('halaman_institusi')
-			<li class="nav-item"><a href="/instantion" class="nav-link"><i class="fa-solid fa-school"></i> <span>Manajemen institusi</span></a></li>	
+			<li class="nav-item"><a href="/instantion" class="nav-link"><i class="fa-solid fa-school"></i> <span  class="mx-3">Manajemen institusi</span></a></li>
+      <li class="nav-item"><a href="/instantion-profile" class="nav-link"><i class="fa-solid fa-gear"></i><span class="mx-3">Pengaturan profile</span></a></li>	
 			@endcan				
-			<li class="nav-item"><a href="/product" class="nav-link"><i class="fa-solid fa-box"></i> <span>Manajemen produk</span></a></li>
-
-			
+			<li class="nav-item"><a href="/product" class="nav-link"><i class="fa-solid fa-box"></i> <span  class="mx-3">Manajemen produk</span></a></li>
 			
         </ul>
       </div>

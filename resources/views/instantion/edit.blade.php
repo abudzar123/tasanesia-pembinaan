@@ -228,9 +228,7 @@
             </div>
           </div>
         </div>
-        <div class="footer">
-          @2022 Tasanesia. All Rights Reserved
-        </div>
+       
     </form>
   
 

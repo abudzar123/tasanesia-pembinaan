@@ -25,5 +25,7 @@ class RegistarController extends Controller
         ]);
         User::create($validateData);
         return redirect('/login');
+         
     }
+  
 }
